@@ -1,0 +1,20 @@
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  padding: 6rem;
+  background-color: #222;
+  color: white;
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+
+    .social svg {
+      width: 3em;
+      fill: currentColor;
+    }
+  }
+}

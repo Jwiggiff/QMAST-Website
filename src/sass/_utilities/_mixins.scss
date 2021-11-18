@@ -1,0 +1,15 @@
+@use "./breakpoints";
+
+@mixin media-query($device) {
+  @media only screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media only screen and (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
