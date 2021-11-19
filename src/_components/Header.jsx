@@ -2,6 +2,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
+import logo from "../img/QMAST.png";
+
 export default function Header() {
   const headerRef = useRef();
   const [activeSection, setActiveSection] = useState("home");
@@ -40,7 +42,7 @@ export default function Header() {
 
   return (
     <div className="header" ref={headerRef}>
-      <img src="" alt="QMAST" id="logo" />
+      <img src={logo} alt="QMAST" id="logo" />
       <ul id="nav">
         <li>
           <a className={activeSection == "home" ? "active" : null} href="#">
