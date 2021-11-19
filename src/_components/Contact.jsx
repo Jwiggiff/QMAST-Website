@@ -1,7 +1,5 @@
-import { ReactComponent as InstagramLogo } from "../img/instagram.svg";
 import { ReactComponent as FacebookLogo } from "../img/facebook.svg";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useContext, useEffect } from "react";
+import { ReactComponent as InstagramLogo } from "../img/instagram.svg";
 
 export default function Contact() {
   return (
@@ -18,10 +16,20 @@ export default function Contact() {
         </p>
       </div>
       <div className="socials">
-        <a className="social" id="facebook">
+        <a
+          className="social"
+          id="facebook"
+          href="https://www.facebook.com/QMAST/?ref=bookmarks"
+          target="_blank"
+        >
           <FacebookLogo />
         </a>
-        <a className="social" id="instagram">
+        <a
+          className="social"
+          id="instagram"
+          href="https://www.instagram.com/q_mast_/?hl=en"
+          target="_blank"
+        >
           <InstagramLogo />
         </a>
       </div>

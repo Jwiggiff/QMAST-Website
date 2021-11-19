@@ -1,11 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useContext, useEffect, useRef, useState } from "react";
-// import { ActiveSection } from "../App";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const headerRef = useRef();
-  // const { activeSection, setActiveSection } = useContext(ActiveSection);
   const [activeSection, setActiveSection] = useState("home");
 
   gsap.registerPlugin(ScrollTrigger);
@@ -16,16 +14,8 @@ export default function Header() {
       start: "bottom top",
       end: 99999,
       toggleClass: { targets: headerRef.current, className: "minimized" },
-      // markers: true
     });
 
-    ScrollTrigger.create({
-      trigger: "#hero",
-      start: "top top",
-      onEnter: () => {
-        setActiveSection("home");
-      },
-    });
     ScrollTrigger.create({
       trigger: "#mission",
       start: "top top",
