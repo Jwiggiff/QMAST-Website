@@ -4,8 +4,6 @@ import App from "./App";
 
 import "./sass/main.scss";
 
-import "./img/hero.jpg";
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

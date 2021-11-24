@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-import logo from "../img/QMAST.png";
+import { logo } from "../data.json";
 
 export default function Hero() {
   const heroRef = useRef();

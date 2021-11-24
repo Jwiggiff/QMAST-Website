@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
-import logo from "../img/QMAST.png";
+import { logo } from "../data.json";
 
 export default function Header() {
   const headerRef = useRef();
@@ -11,14 +11,14 @@ export default function Header() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    ScrollTrigger.create({
+    const headerAnim = ScrollTrigger.create({
       trigger: "#hero",
       start: "bottom top",
       end: 99999,
       toggleClass: { targets: headerRef.current, className: "minimized" },
     });
 
-    ScrollTrigger.create({
+    const missionAnim = ScrollTrigger.create({
       trigger: "#mission",
       start: "top top",
       onEnter: () => {
@@ -27,8 +27,11 @@ export default function Header() {
       onEnterBack: () => {
         setActiveSection("mission");
       },
+      onLeaveBack: () => {
+        setActiveSection("home");
+      },
     });
-    ScrollTrigger.create({
+    const teamsAnim = ScrollTrigger.create({
       trigger: "#teams",
       start: "top top",
       onEnter: () => {
@@ -38,7 +41,13 @@ export default function Header() {
         setActiveSection("teams");
       },
     });
-  });
+
+    return () => {
+      headerAnim.kill();
+      missionAnim.kill();
+      teamsAnim.kill();
+    };
+  }, []);
 
   return (
     <div className="header" ref={headerRef}>
