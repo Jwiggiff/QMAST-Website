@@ -1,3 +1,5 @@
+@use "../_utilities/" as *;
+
 .contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -8,6 +10,7 @@
 
   .socials {
     display: flex;
+    flex-flow: wrap;
     justify-content: center;
     align-items: center;
     gap: 4rem;
@@ -16,5 +19,9 @@
       width: 3em;
       fill: currentColor;
     }
+  }
+
+  @include media-query($small) {
+    padding: 3rem;
   }
 }

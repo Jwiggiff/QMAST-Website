@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { onSmalLScreen } from "../App";
 import { logo } from "../data.json";
 
 export default function Hero() {
@@ -7,20 +8,21 @@ export default function Hero() {
   const leftRef = useRef();
   const rightRef = useRef();
 
-  useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "center center",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-        },
-      })
-      .to(leftRef.current, { translateX: "3em" }, "<")
-      .to(rightRef.current, { translateX: "-2.5em" }, "<");
-  });
+  if (!onSmalLScreen())
+    useEffect(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "center center",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+          },
+        })
+        .to(leftRef.current, { translateX: "3em" }, "<")
+        .to(rightRef.current, { translateX: "-2.5em" }, "<");
+    });
 
   return (
     <section id="hero" className="hero" ref={heroRef}>

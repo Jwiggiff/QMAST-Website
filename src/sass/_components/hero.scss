@@ -1,3 +1,5 @@
+@use "../_utilities/" as *;
+
 .hero {
   height: 100vh;
   background: aqua;
@@ -10,6 +12,9 @@
   align-items: center;
   position: relative;
   background-image: url(/img/hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   img {
     position: absolute;
@@ -28,6 +33,25 @@
     }
     &:last-of-type {
       transform: translateX(2.5em);
+    }
+  }
+
+  @include media-query($small) {
+    padding: 2rem 5rem;
+    width: 100vw;
+
+    h1 {
+      font-size: 4em;
+      transform: none !important;
+
+      &::after {
+        content: '';
+        display: block;
+        background-color: currentColor;
+        width: 2rem;
+        height: 0.2rem;
+        margin: 1rem auto;
+      }
     }
   }
 }

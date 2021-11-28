@@ -59,4 +59,33 @@
       }
     }
   }
+
+  .toggleNav {
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    display: none;
+  }
+
+  @include media-query($small) {
+    padding: 0 2rem;
+
+    .toggleNav {
+      display: initial;
+    }
+
+    #nav {
+      flex-flow: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      padding: 2rem 0;
+      background-color: white;
+
+      &.minimized {
+        display: none;
+      }
+    }
+  }
 }

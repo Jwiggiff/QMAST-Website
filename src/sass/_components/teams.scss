@@ -1,7 +1,7 @@
 @use "../utilities" as *;
 
 .teams {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -46,6 +46,18 @@
 
     @include hover {
       transform: scale(1);
+
+      > * {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include media-query($small) {
+    flex-flow: column;
+
+    .team {
+      transform: scale(0.9);
 
       > * {
         opacity: 1;

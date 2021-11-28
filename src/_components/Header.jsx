@@ -7,6 +7,7 @@ import { logo } from "../data.json";
 export default function Header() {
   const headerRef = useRef();
   const [activeSection, setActiveSection] = useState("home");
+  const [navMinimized, setNavMinimized] = useState(true);
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +53,19 @@ export default function Header() {
   return (
     <div className="header" ref={headerRef}>
       <img src={logo} alt="QMAST" id="logo" />
-      <ul id="nav">
+      <button
+        className="toggleNav"
+        onClick={() => {
+          setNavMinimized(!navMinimized);
+        }}
+      >
+        <svg id="menu" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="0" y="2" rx="2" ry="2" width="24" height="4"></rect>
+          <rect x="0" y="10" rx="2" ry="2" width="24" height="4"></rect>
+          <rect x="0" y="18" rx="2" ry="2" width="24" height="4"></rect>
+        </svg>
+      </button>
+      <ul id="nav" className={navMinimized ? "minimized" : null}>
         <li>
           <a className={activeSection == "home" ? "active" : null} href="#">
             Home

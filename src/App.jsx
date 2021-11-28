@@ -18,3 +18,6 @@ function App() {
 }
 
 export default App;
+
+
+export const onSmalLScreen = () => window.matchMedia("only screen and (max-width: 800px)").matches;
